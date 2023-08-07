@@ -1,0 +1,258 @@
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Itim', cursive;
+}
+body{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+aside{
+    position: absolute;
+    display: flex;
+    min-width: 254px;
+    width: 22vw;
+    height: 100%;
+    box-shadow: 9px 0 12px 2px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    align-items: center;
+}
+section{
+    position: absolute;
+    display: inline-block;
+    width: 78vw;
+    position: relative;
+    left: 22vw;
+}
+
+
+/*    ASIDE    */
+
+.figureContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.asideProfilePicture{
+    width: 180px;
+    border-radius: 50%;
+}
+
+
+
+.asideOptions p{
+    display: inline;
+    background-color:#EFEFEF;
+    padding: 10px;
+    border-radius: 8px;
+}
+.asideOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.copyrightContainer{
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+}
+
+
+/*   SECTION       */
+
+
+.searchSection{
+    position: absolute;
+    right: 70px;
+    width: 300px;
+}
+.searchBar{
+    width: 100%;
+    font-family: 'Itim', cursive;
+    font-size: 25px;
+    border-radius: 8px;
+}
+
+
+
+.labelGrid{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.gridSectionContainer{
+    position: absolute;
+    top: 32px;
+    padding: 20px;
+}
+.vestidosGridContainer{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.vestidosGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: space-around;
+}
+.gridElement{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 390px;
+    position: relative;
+}
+.gridElement img{
+    width: 270px;
+    height: 370px;
+    box-shadow: 9px 0 12px 2px rgba(0, 0, 0, 0.25);
+}
+.vestidoContainer{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.vestidoContainer p{
+    font-size: 25px;
+    color: white;
+    background-color: #00000011;
+    border-radius: 8px;
+    padding: 3px;
+    border: none;
+    margin: 10px;
+
+    position: absolute;
+    top: 300px;
+
+    z-index: 15;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*   Animacion efecto estrellas para las tarjetas           */
+
+
+:root {
+    --color1: rgba(138, 195, 178, 0.405);
+    --color2: rgba(104, 117, 153, 0.47);
+  }
+  
+  .card {
+    z-index: 10;
+    touch-action: none;
+    border-radius: 5%/3.5%;
+    transition: transform 0.5s ease, box-shadow 0.2s ease;
+    will-change: transform, filter;
+    background-color: #040712;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transform-origin: center;
+  }
+  @media screen and (min-width: 600px) {
+    .card {
+      width: clamp(12.9vw, 61vh, 18vw);
+      height: clamp(18vw, 85vh, 25.2vw);
+    }
+  }
+  
+  .card:before,
+  .card:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    mix-blend-mode: color-dodge;
+    transition: all 0.33s ease;
+  }
+  
+  .card:before {
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    background-image: linear-gradient(115deg, transparent 0%, var(--color1) 25%, transparent 47%, transparent 53%, var(--color2) 75%, transparent 100%);
+    opacity: 0.5;
+    filter: brightness(0.5) contrast(1);
+    z-index: 1;
+  }
+  
+  .card:after {
+    opacity: 1;
+    background-image: url("https://assets.codepen.io/13471/sparkles.gif"), url(https://assets.codepen.io/13471/holo.png), linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+    background-position: 50% 50%;
+    background-size: 160%;
+    background-blend-mode: overlay;
+    z-index: 2;
+    filter: brightness(1) contrast(1);
+    transition: all 0.33s ease;
+    mix-blend-mode: color-dodge;
+    opacity: 0.75;
+  }
+  
+  .card.active:after,
+  .card:hover:after {
+    filter: brightness(1) contrast(1);
+    opacity: 1;
+  }
+  
+  .card.active,
+  .card:hover {
+    -webkit-animation: none;
+            animation: none;
+    transition: box-shadow 0.1s ease-out;
+  }
+  
+  .card.active:before,
+  .card:hover:before {
+    -webkit-animation: none;
+            animation: none;
+    background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
+    background-position: 50% 50%;
+    background-size: 250% 250%;
+    opacity: 0.88;
+    filter: brightness(0.66) contrast(1.33);
+    transition: none;
+  }
+  
+  .card.active:before,
+  .card:hover:before,
+  .card.active:after,
+  .card:hover:after {
+    -webkit-animation: none;
+            animation: none;
+    transition: none;
+  }
+  
+
+  .cards {
+    justify-content: space-evenly;
+    perspective: 2000px;
+    position: relative;
+    z-index: 1;
+    transform: translate3d(0.1px, 0.1px, 0.1px);
+  }
+  
